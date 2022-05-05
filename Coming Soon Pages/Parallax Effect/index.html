@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Parallax Background | Coming Soon</title>
+	<meta name="viewport" content="width=device-width">
+	<!-- BOOTSTRAP CDN -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+	<!-- GOOGLE FONTS -->
+	<link href="https://fonts.googleapis.com/css?family=Lato|Raleway:100,300,400" rel="stylesheet">
+	<!-- FONT AWESOME -->
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+	<!-- CUSTOM CSS -->
+	<link href="assets/css/style.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="container-fluid" id="main-container">
+<!-- PARALLAX IMAGES -->
+	<ul id="scene" class="scene">
+			<li class="layer" data-depth="1.00"><img src="assets/img/layer1.png"></li>
+			<li class="layer" data-depth="0.80"><img src="assets/img/layer2.png"></li>
+			<li class="layer" data-depth="0.60"><img src="assets/img/layer3.png"></li>
+			<li class="layer" data-depth="0.40"><img src="assets/img/layer4.png"></li>
+			<li class="layer" data-depth="0.20"><img src="assets/img/layer5.png"></li>
+			<li class="layer" data-depth="0.10"><img src="assets/img/layer6.png"></li>
+		</ul>
+<!-- /PARALLAX IMAGES -->
+		<div class="container-fluid" style="background: rgba(12,12,12,0.3); width: 100%;min-height: 100vh; padding: 70px 0; margin: 0">
+			<img src="assets/img/logo2.png" alt="company logo" class="img-responsive" id="main-logo"/>
+			<h1>This Will Be A Great Website <span>One Day</span></h1>
+			<p>Unfortunately, today is <span>not</span> that day. Have a look at the timer below to see how <span>long</span> till we launch. Or maybe its a timer counting down to the inevitable <span>zombie apocalypse</span>. Who knows?</p>
+			<div style="text-align: center; margin: 20px">
+				<div id="clockdiv">
+					<div>
+						<span class="days"></span>
+						<br>
+						<span class="smalltext">DAYS</span>
+					</div>
+					<div>
+						<span class="hours"></span>
+						<br>
+						<span class="smalltext">HRS</span>
+					</div>
+					<div>
+						<span class="minutes"></span>
+						<br>
+						<span class="smalltext">MIN</span>
+					</div>
+					<div>
+						<span class="seconds"></span>
+						<br>
+						<span class="smalltext">SECS</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /CONTAINER -->
+	</div>
+	<!-- FEATURES SECTION -->
+	<div class="container" id="features">
+		<h1>Interested To See What We Have In Store?</h1>
+		<div class="col-md-4">
+			<i class="glyphicon glyphicon-envelope"></i>
+			<h4>Quick Response</h4>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec lacus id felis sollicitudin ornare eu vel est. In tristique quam tellus, sit amet euismod purus suscipit a. Fusce a varius nibh. Nunc sed ex ipsum.</p>
+		</div>
+		<div class="col-md-4">
+			<i class="glyphicon glyphicon-heart"></i>
+			<h4>Made With Care</h4>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec lacus id felis sollicitudin ornare eu vel est. In tristique quam tellus, sit amet euismod purus suscipit a. Fusce a varius nibh. Nunc sed ex ipsum.</p>
+		</div>
+		<div class="col-md-4">
+			<i class="glyphicon glyphicon-thumbs-up"></i>
+			<h4>Great Feedback</h4>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec lacus id felis sollicitudin ornare eu vel est. In tristique quam tellus, sit amet euismod purus suscipit a. Fusce a varius nibh. Nunc sed ex ipsum.</p>
+		</div>
+		<div class="col-md-4">
+			<i class="glyphicon glyphicon-globe"></i>
+			<h4>Global</h4>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec lacus id felis sollicitudin ornare eu vel est. In tristique quam tellus, sit amet euismod purus suscipit a. Fusce a varius nibh. Nunc sed ex ipsum.</p>
+		</div>
+		<div class="col-md-4">
+			<i class="glyphicon glyphicon-sunglasses"></i>
+			<h4>Ultra Cool</h4>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec lacus id felis sollicitudin ornare eu vel est. In tristique quam tellus, sit amet euismod purus suscipit a. Fusce a varius nibh. Nunc sed ex ipsum.</p>
+		</div>
+		<div class="col-md-4">
+			<i class="glyphicon glyphicon-flash"></i>
+			<h4>Fast</h4>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec lacus id felis sollicitudin ornare eu vel est. In tristique quam tellus, sit amet euismod purus suscipit a. Fusce a varius nibh. Nunc sed ex ipsum.</p>
+		</div>
+	</div>
+	<!-- Contact Form Start -->
+	<div class="modal fade" id="contactFormModal" tabindex="-1" role="dialog" aria-labelledby="contactFormModal">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h3>Get In Touch</h3>
+				<form>
+					<div class="form-group">
+						<label for="full-name">Full Name</label>
+						<input type="text" class="form-control" id="full-name">
+					</div>
+					<div class="form-group">
+						<label for="email">Email</label>
+						<input type="email" class="form-control" id="email">
+					</div>
+					<div class="form-group">
+						<label for="message">Message</label>
+						<textarea id="message" class="form-control"></textarea>
+					</div>
+					<button class="btn btn-danger">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- Contact Form End -->
+	<!-- SUBSCRIBE -->
+	<div class="container-fluid" id="subscribe">
+		<h1>Subscribe To Our Newsletter</h1>
+		<h4>Never Miss A Moment</h4>
+		<form>
+			<div class="input-group">
+			<div class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></div>
+				<input type="email" class="form-control" placeholder="Enter Your Email">
+			</div>
+				<button class="btn btn-info">Subscribe Me</button>
+		</form>
+	</div>
+	<!-- /SUBSCRIBE -->
+	<div id="map"></div>
+	<!-- /MAP -->
+	<!-- FOOTER -->
+	<footer>
+		<h1>Why Not Drop Us A Line</h1>
+	<a href="#" data-toggle="modal" data-target="#contactFormModal" id="show-contact-form">Show Contact Form</a>
+	<div id="social-icons">
+		<i class="fa fa-facebook"></i>
+		<i class="fa fa-twitter"></i>
+		<i class="fa fa-pinterest"></i>
+		<i class="fa fa-linkedin"></i>
+		<i class="fa fa-dribbble"></i>
+		<i class="fa fa-instagram"></i>
+		<i class="fa fa-behance"></i>
+		<i class="fa fa-google-plus"></i>
+	</div>
+	<small>2017 &copy; Zain Hansrod All Rights Reserved</small>
+	</footer>
+	<!-- JQUERY CDN -->
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<!--  BOOTSTRAP JAVASCRIPT CDN -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<!-- PARALLAX JS -->
+	<script src="assets/js/jquery.parallax.js"></script>
+	<script src="assets/js/parallax.js"></script>
+	<script src="assets/js/requestAnimationFrame.js"></script>
+	<!-- CUSTOM JS -->
+	<script src="assets/js/main.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAV-7Qwm2RFUAJIIasZKohbF0j1HoSx3nM&callback=initMap" async defer></script>
+</body>
+</html>

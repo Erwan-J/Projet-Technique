@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<title>Retour Regie lumiere</title>
+		<script src="https://aframe.io/releases/1.2.0/aframe.min.js">
+		</script>
+		<script type="text/javascript">
+      AFRAME.registerComponent('updaterrl', {
+  //ok
+    init: function()
+    {
+      this.num = 0;
+      var xhttp = new XMLHttpRequest();
+      
+      var el=this.el;
+      
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+           // Typical action to be performed when the document is ready:
+           var reponseHTTP= "";
+           reponseHTTP = xhttp.responseText; console.log=reponseHTTP;
+           el.setAttribute("text", "value", reponseHTTP);
+           xhttp.open("GET", "http://localhost/said/Revue1/php/baser.php", true); 
+           xhttp.send();
+        }
+      };
+      xhttp.open("GET", "http://localhost/said/Revue1/php/baser.php", true);     
+      xhttp.send();
+    },
+    
+    tick: function (time, timeDelta) 
+    {
+      
+    }
+  });
+      	</script>
+	</head>
+	<body>
+    <!--Création de la première maquette zpour lA REGIE LUMIERE 
+     affiche et renvoie les données dans un environnement Aframe  -->
+		<a-scene>
+
+			<a-entity position="0 0.6 2.5" rotation="-5 0 0">
+				<a-camera></a-camera>
+			</a-entity>
+<!-- __________Titre du systeme_____________ -->
+			<a-entity text="value: Information regie lumiere; color:#00F" position="-1 3 0" scale="4 3 1"></a-entity>
+<!-- __________Valeurs à afficher____________ -->
+      <a-entity text="value: Temps depuis utilisation : ; color:#F0F" position="-1.7 0.75 0" scale="4 4 1"></a-entity>
+      <a-entity text="value:Consommation de courant : ; color:#F0F" position="-1.7 0.48 0" scale="4 4 1"></a-entity>
+<!-- _______________Les valeurs de tiré du serveurs_______________________ -->
+			<a-entity text="value:courant; color:#F00" position="0 0.67 0" scale="3 3 1" updaterrl></a-entity>
+      
+		</a-scene>
+
+	</body>
+</html>

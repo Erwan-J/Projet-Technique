@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<title>Retour Panneau solaire</title>
+		<script src="https://aframe.io/releases/1.2.0/aframe.min.js">
+		</script> 
+		<script type="text/javascript">
+      AFRAME.registerComponent('updateras', {
+
+        init: function()
+        {
+          this.num = 0;
+        },
+
+        tick: function (time, timeDelta)
+        {
+          var el=this.el;//variable "el" qui vaut l'élement qui appelle la fonction
+
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function () 
+          {
+            if (this.readyState == 4 && this.status == 200)
+            {
+              var reponseHTTP = "";
+              reponseHTTP = xhttp.responseText; 
+              console.log=reponseHTTP;
+              el.setAttribute("text","value", reponseHTTP);//modifie la valeur du text de l'element qui a appellé la fonction
+            }
+          };
+          xhttp.open("GET", "http://localhost/said/Revue1/php/basep.php", true);//récupère 
+          xhttp.send();
+        }
+      });
+      	</script>
+	</head>
+	<body>
+    <!-- Création de la première maquette zpour le panneau solaire
+    affiche et renvoie les données dans un environnement Aframe  -->
+		<a-scene>
+
+			<a-entity position="0 0 2.5" rotation="-15 0 0">
+				<a-camera></a-camera>
+			</a-entity>
+<!-- Titre du systeme -->
+			<a-entity text="value: Information panneau solaire; color:#00F" position="0 1 0" scale="4 3 1"></a-entity>
+<!-- l'information affichée... -->
+			<a-entity text="value: Orientation du Panneau 1 : ; color:#F0F" position="-0.7 -0.25 0" scale="4 4 1"></a-entity>
+      <a-entity text="value:Inclinaison du Panneau 1 : ; color:#F0F" position="-0.7 -0.52 0" scale="4 4 1"></a-entity>
+      <a-entity text="value:Consommation du Panneau 1 : ; color:#F0F" position="-0.7 -0.79 0" scale="4 4 1"></a-entity>
+      <a-entity text="value:Temps depuis utilisation de Pa 1 : ; color:#F0F" position="-0.7 -1.06 0" scale="4 4 1"></a-entity>
+<!-- Valeurs tirés du serveur -->
+			<a-entity text="value:valeur a renvoyer; color:#F00" position="1.45 -0.6 0" scale="3 3 1" updateras></a-entity>
+			
+		</a-scene>
+
+	</body>
+</html>

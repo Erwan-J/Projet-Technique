@@ -1,0 +1,273 @@
+ <!DOCTYPE html>
+ <html lang="fr">
+  <head>
+    <title>Maquette pour la revue 2 IHM RA</title>
+    <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.0.0/dist/mindar-image.prod.js"></script>
+      <!-- ouvre la camera pour le tracking -->
+      <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+      <!-- Ouverture de l'environnement Aframe sans ça pas de réalité augmenté avec AFRAME -->
+      <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.0.0/dist/mindar-image-aframe.prod.js"></script>
+      <!-- pour ajouter le tracking d'image avec Mind-AR -->
+      <!-- ____________________________________________________________ -->
+  <script type="text/javascript">
+    AFRAME.registerComponent('updaterrl1', {
+        init: function()
+          {
+          this.num = 0;
+          var el=this.el;      
+            $.get("php/baser.php", function (data) 
+              {
+               el.setAttribute("text", "value", data);
+              });
+          },
+        tick: function (time, timeDelta)  
+        {
+        }
+    });  
+    /////////////////////////////////////////////////////////////////////////// -->
+    AFRAME.registerComponent('updaterrl2', {
+        init: function()
+          {
+            this.num = 0;
+            var el=this.el;
+            $.get("php/baser2.php", function (data) 
+              {
+                el.setAttribute("text", "value", data);
+              });
+          },
+        
+        tick: function (time, timeDelta) 
+        {
+        }
+    });
+  </script>
+ <!-- __________________________________________________________________________________________________ -->
+  <script type="text/javascript">
+    AFRAME.registerComponent('updateras1', {
+        init: function()
+          {
+            this.num = 0;
+          },
+
+        tick: function (time, timeDelta)
+          {
+            var el=this.el;
+            majAffPS("php/basep.php", el,"as");//modifie la valeur du text de l'element qui a appellé la fonction Pas d'affichage de données sans ça
+          }
+      });
+ //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    AFRAME.registerComponent('updateras2', {
+        init: function()
+          {
+            this.num = 0;
+          },
+
+        tick: function (time, timeDelta)
+          {
+            var el=this.el;
+            majAffPS("php/basep2.php", el, "as");
+          },
+      });
+
+      function majAffPS(base,el, systeme) {
+            //variable "el" qui vaut l'élement qui appelle la fonction    
+            $.get(base, function (data) {
+              el.setAttribute("text","value", data);//modifie la valeur du text de l'element qui a appellé la fonction
+            });  
+      }
+//_____________________________________________________________________________________________
+//https://aframe.io/docs/1.3.0/components/rotation.html
+    AFRAME.registerComponent('majboussole1', {
+        init: function()
+          {
+            this.num = 0;
+          },
+        tick: function (time, timeDelta)
+          {
+            var el=this.el;//vaut l'élement qui l'appelle        
+            $.get("http://localhost/said/Revue2/php/basep.php", function (data) 
+              {
+                var position = data.indexOf(' deg');
+                var result = data.slice(2,position)
+                var orientation = data.slice(6 + position,data.length);
+                var position = orientation.indexOf(' deg');
+                var result1 = orientation.slice(0,position);
+
+             
+                el.object3D.rotation.set(
+                THREE.Math.degToRad(90),
+                THREE.Math.degToRad(-result1+90),
+                THREE.Math.degToRad(0)
+                );
+              });
+          }
+    });    
+    AFRAME.registerComponent('majboussole2', {
+        init: function()
+          {
+            this.num = 0;
+          },
+        tick: function (time, timeDelta)
+          {
+            var el=this.el;//vaut l'élement qui l'appelle        
+            $.get("http://localhost/said/Revue2/php/basep2.php", function (data) 
+              {
+              var position = data.indexOf(' deg');
+                var result = data.slice(2,position)
+                var orientation = data.slice(6 + position,data.length);
+                var position = orientation.indexOf(' deg');
+                var result1 = orientation.slice(0,position);
+
+              el.object3D.rotation.set(
+              THREE.Math.degToRad(90),
+              THREE.Math.degToRad(-result1+90),
+              THREE.Math.degToRad(0)
+              );
+              // el.setAttribute('rotation', {x: 90,y: 0,z: 0});
+              });
+          }
+      });
+
+    AFRAME.registerComponent('majinclinaison1', {
+        init: function()
+          {
+            this.num = 0;
+          },
+        tick: function (time, timeDelta)
+          {
+            var el=this.el;//vaut l'élement qui l'appelle        
+            $.get("http://localhost/said/Revue2/php/basep.php", function (data) 
+              {
+              var position = data.indexOf(' deg');
+                var result = data.slice(2,position)
+                var orientation = data.slice(6 + position,data.length);
+                var position = orientation.indexOf(' deg');
+                var result1 = orientation.slice(0,position);
+
+              el.object3D.rotation.set(
+              THREE.Math.degToRad(0),
+              THREE.Math.degToRad(0),
+              THREE.Math.degToRad(-result+90)
+              );
+              // el.setAttribute('rotation', {x: 90,y: 0,z: 0});
+              });
+          }
+      });
+
+    AFRAME.registerComponent('majinclinaison2', {
+        init: function()
+          {
+            this.num = 0;
+          },
+        tick: function (time, timeDelta)
+          {
+            var el=this.el;//vaut l'élement qui l'appelle        
+            $.get("http://localhost/said/Revue2/php/basep2.php", function (data) 
+              {
+              var position = data.indexOf(' deg');
+                var result = data.slice(2,position)
+                var orientation = data.slice(6 + position,data.length);
+                var position = orientation.indexOf(' deg');
+                var result1 = orientation.slice(0,position);
+
+              el.object3D.rotation.set(
+              THREE.Math.degToRad(0),
+              THREE.Math.degToRad(0),
+              THREE.Math.degToRad(-result+90)
+              );
+              // el.setAttribute('rotation', {x: 90,y: 0,z: 0});
+              });
+          }
+      });
+  </script>
+
+        <!-- ___________________________________________________________ -->
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <!-- Dans cette maquette on peu lire les le QR code et renvoyé les données correspondantes en fonction du QR code reconnu -->
+    <a-scene mindar-image="imageTargetSrc: images/targets.mind;" vr-mode-ui="enabled: false" device-oriaentation-permission-ui="enabled: false">
+        <!-- on ouvre une scéne qui reconnait des images grace à mind-AR(targets.mind) -->
+
+      <a-assets>
+          <img id="aiguilleTexture" src="images/aiguille.jpg" alt="aiguille dans la boussole">
+          <img id="fondTexture" src="images/sans_aiguille.png" alt="ce qui indique la direction vers laquelle point l'aiguille">
+          <a-mixin id="box" geometry="primitive: box"></a-mixin>
+          <a-mixin id="tall" geometry="height: 1" material="color: blue"></a-mixin>
+          <a-mixin id="wide" geometry="width: 0.1"></a-mixin>
+          <a-mixin id="slim" geometry="width: 0.05"></a-mixin>
+          <a-mixin id="short" geometry="height: 0.5" material="color: red"></a-mixin>
+
+      </a-assets>
+
+      <a-entity position="0 0.6 3" rotation="-5 0 0">
+        <a-camera updateras2></a-camera>
+      </a-entity>
+<!-- __________________________Reconnaissance Par QR code______________________________________ -->
+      <a-entity mindar-image-target="targetIndex: 0">
+
+          <!-- Titre du systeme -->
+            <a-entity text="value: Information Panneau solaire 1; color:#00F" position="0.2 0.5 0" scale="3 3 1"></a-entity>
+          <!-- l'information affichée... -->
+            <a-entity text="value:Orientation du Panneau 1 : ; color:#F0F" position="-0.2 -0.25 0" scale="2 2 1"></a-entity>
+            <a-entity text="value:Inclinaison du Panneau 1 : ; color:#F0F" position="-0.2 -0.52 0" scale="2 2 1"></a-entity>
+            <a-entity text="value:Consommation du Panneau 1 : ; color:#F0F" position="-0.2 -0.79 0" scale="2 2 1"></a-entity>
+          <!--la boussole  -->
+            <a-plane rotation="0 0 180" width="1.6" height="1.6" src="#fondTexture" position="0 -1.4 -1.1"></a-plane>
+            <a-cylinder id="aiguille1" src="#aiguilleTexture" height="0.04" radius="0.6" position="0 -1.4 -1" majboussole1></a-cylinder>
+          <!-- Inclinaison -->
+            <a-ring radius-inner="0.48" radius-outer="0.6" position="0 0 -1" color="yellow"></a-ring>          
+            <a-entity mixin="wide tall box" geometry="depth: 0.05" position="0 0 -1" majinclinaison1></a-entity>
+            <a-entity mixin="slim short box" geometry="depth: 0.05" position="-0.1 -0.21 -1.01" rotation="0 0 -30" ></a-entity>
+          <!-- Valeurs tirés du serveur -->
+            <a-entity text="value:valeurs a renvoyer : ; color:#F00" position="1.75 -0.6 0" scale="3 3 1" updateras1></a-entity>
+      </a-entity>
+<!-- /////////////////////////////////////////////////////////////////////// -->
+
+      <a-entity mindar-image-target="targetIndex: 1">
+          <!-- __________Titre du systeme_____________ -->
+            <a-entity text="value: Information regie lumiere 1; color:#00F" position="0.2 0.5 0" scale="3 3 1"></a-entity>
+          <!-- __________Valeurs à afficher____________ -->
+            <a-entity text="value: Temps depuis utilisation de Rl 1: ; color:#F0F" position="-0.2 -0.25 0" scale="3 3 1"></a-entity>
+            <a-entity text="value:Consommation de courant de Rl 1: ; color:#F0F" position="-0.2 -0.52 0" scale="3 3 1"></a-entity>
+            <!-- <a-entity text="value:Tension de Rl1: ; color:#F0F" position="-0.7 -0.52 0" scale="3 3 1"></a-entity> -->
+          <!-- _______________Les valeurs de tiré du serveurs_______________________ -->
+            <a-entity text="value:courant; color:#F00" position="1.85 -0.33 0" scale="3 3 1" updaterrl1></a-entity>
+      </a-entity>
+<!-- ////////////////////////////////////////////////////////////////////////// -->
+
+      <a-entity mindar-image-target="targetIndex: 2">
+                <!-- __________Titre du systeme_____________ -->
+            <a-entity text="value: Information regie lumiere 2; color:#00F" position="0.2 0.5 0" scale="3 3 1"></a-entity>
+          <!-- __________Valeurs à afficher____________ -->
+            <a-entity text="value: Temps depuis utilisation de Rl 2: ; color:#F0F" position="-0.7 -0.25 0" scale="3 3 1"></a-entity>
+            <a-entity text="value:Consommation de courant de Rl 2: ; color:#F0F" position="-0.7 -0.52 0" scale="3 3 1"></a-entity>
+          <!-- _______________Les valeurs de tiré du serveurs_______________________ -->
+            <a-entity text="value:courant; color:#F00" position="1.35 -0.33 0" scale="3 3 1" updaterrl2></a-entity>
+      </a-entity>
+<!-- /////////////////////////////////////////////////////////////////// -->
+
+      <a-entity mindar-image-target="targetIndex: 3">
+                <!-- Titre du systeme -->
+            <a-entity text="value: Information panneau solaire 2; color:#00F" position="0.2 0.5 0" scale="3 3 1"></a-entity>
+          <!-- l'information affichée... -->
+            <a-entity text="value:Orientation du Panneau 2 : ; color:#F0F" position="-0.5 -0.25 0" scale="2 2 1"></a-entity>
+            <a-entity text="value:Inclinaison du Panneau 2 : ; color:#F0F" position="-0.5 -0.52 0" scale="2 2 1"></a-entity>
+            <a-entity text="value:Consommation du Panneau 2 : ; color:#F0F" position="-0.5 -0.79 0" scale="2 2 1"></a-entity>
+          <!-- La boussole -->
+            <a-plane rotation="0 0 180" width="1.6" height="1.6" src="#fondTexture" position="0 -1.4 -1.05"></a-plane>
+            <a-cylinder id="aiguille2" src="#aiguilleTexture" height="0.04" radius="0.6"  position="0 -1.4 -1" majboussole2></a-cylinder>
+          <!-- L'inclinaison -->
+            <a-ring radius-inner="0.48" radius-outer="0.6" position="0 0 -1" color="yellow"></a-ring>
+            <a-entity mixin="wide tall box" geometry="depth: 0.05" position="0 0 -1" majinclinaison2></a-entity>
+            <a-entity mixin="slim short box" geometry="depth: 0.05" position="-0.1 -0.21 -1.01" rotation="0 0 -30" ></a-entity>
+          <!-- Valeurs tirés du serveur -->
+            <a-entity text="value:valeurs a renvoyer : ; color:#F00" position="1.25 -0.6 0" scale="2.5 2.5 1" updateras2></a-entity>
+      </a-entity>
+
+      </a-scene>
+  </body>
+</html>

@@ -1,0 +1,108 @@
+ <html>
+  <head>
+    <title>Premiere maquette de lihm</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.0.0/dist/mindar-image.prod.js"></script>
+      <!-- <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script> -->
+      <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.0.0/dist/mindar-image-aframe.prod.js"></script>
+        <!-- ____________________________________________________________ -->
+      <script type="text/javascript">
+      AFRAME.registerComponent('updaterrl', {
+  //ok
+    init: function()
+    {
+      this.num = 0;
+      var xhttp = new XMLHttpRequest();
+      
+      var el=this.el;
+      
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+           // Typical action to be performed when the document is ready:
+           var reponseHTTP= "";
+           reponseHTTP = xhttp.responseText; console.log=reponseHTTP;
+           el.setAttribute("text", "value", reponseHTTP);
+           xhttp.open("GET", "http://localhost/said/Revue1/php/baser.php", true); 
+           xhttp.send();
+        }
+      };
+      xhttp.open("GET", "http://localhost/said/Revue1/php/baser.php", true);     
+      xhttp.send();
+    },
+    
+    tick: function (time, timeDelta) 
+    {
+      
+    }
+  });
+        </script>
+        <!-- ___________________________________________________________ -->
+      <script type="text/javascript">
+      AFRAME.registerComponent('updateras', {
+
+        init: function()
+        {
+          this.num = 0;
+        },
+
+        tick: function (time, timeDelta)
+        {
+          var el=this.el;//variable "el" qui vaut l'élement qui appelle la fonction
+
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function () 
+          {
+            if (this.readyState == 4 && this.status == 200)
+            {
+              var reponseHTTP = "";
+              reponseHTTP = xhttp.responseText; 
+              console.log=reponseHTTP;
+              el.setAttribute("text","value", reponseHTTP);//modifie la valeur du text de l'element qui a appellé la fonction
+            }
+          };
+          xhttp.open("GET", "http://localhost/said/Revue1/php/basep.php", true);//récupère 
+          xhttp.send();
+        }
+      });
+        </script>
+        <!-- ___________________________________________________________ -->
+    <meta charset="utf-8">
+  </head>
+
+    <body>
+      
+      <a-scene mindar-image="imageTargetSrc: images/qr.mind;" vr-mode-ui="enabled: false" device-oriaentation-permission-ui="enabled: false">
+
+      <a-entity position="0 0.6 3" rotation="-5 0 0">
+        <a-camera></a-camera>
+      </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 0">
+
+          <!-- Titre du systeme -->
+      <a-entity text="value: Information panneau solaire; color:#00F" position="0 1 0" scale="4 3 1"></a-entity>
+<!-- l'information affichée... -->
+      <a-entity text="value: Orientation du Panneau 1 : ; color:#F0F" position="-0.7 -0.25 0" scale="3 3 1"></a-entity>
+      <a-entity text="value:Inclinaison du Panneau 1 : ; color:#F0F" position="-0.7 -0.52 0" scale="3 3 1"></a-entity>
+      <a-entity text="value:Consommation du Panneau 1 : ; color:#F0F" position="-0.7 -0.79 0" scale="3 3 1"></a-entity>
+      <a-entity text="value:Energie consommé par Pa 1 : ; color:#F0F" position="-0.7 -1.06 0" scale="3 3 1"></a-entity>
+<!-- Valeurs tirés du serveur -->
+      <a-entity text="value:Tension dans le panneau; color:#F00" position="1.25 -0.6 0" scale="2.5 2.5 1" updateras></a-entity>
+
+        </a-entity>
+<!-- ///////////////////////////////////////////////////////////////////////séparation des systemes -->
+        <a-entity mindar-image-target="targetIndex: 1">
+
+          <!-- __________Titre du systeme_____________ -->
+      <a-entity text="value: Information regie lumiere; color:#00F" position="0 1 0" scale="4 3 1"></a-entity>
+<!-- __________Valeurs à afficher____________ -->
+      <a-entity text="value: Temps depuis utilisation : ; color:#F0F" position="-0.7 -0.25 0" scale="3 3 1"></a-entity>
+      <a-entity text="value:Consommation de courant : ; color:#F0F" position="-0.7 -0.52 0" scale="3 3 1"></a-entity>
+<!-- _______________Les valeurs de tiré du serveurs_______________________ -->
+      <a-entity text="value:courant; color:#F00" position="1 -0.33 0" scale="3 3 1" updaterrl></a-entity>
+
+        </a-entity>
+
+      </a-scene>
+    </body>
+</html>
