@@ -207,7 +207,7 @@
          
 <script>	
 
-	function loadDoc() {
+	function loadDoc(loc,nb) {
 
 	const xhttp = new XMLHttpRequest();
 		
@@ -215,11 +215,10 @@
 	xhttp.onload = function() {
 		//document.getElementById("demo").innerHTML = this.responseText;
 		var test = this.responseText;
-		document.getElementById("demo").innerHTML = test;
 		//var tab = JSON.parse(test);
 		var tab = test.split(' ');
-		console.log(tab[1]);
-
+		console.log(tab);
+		document.getElementById(loc).innerHTML = tab[nb];
 
 	}
 
@@ -228,8 +227,7 @@
 	}
 	
 
-
-	loadDoc();
+	var x = setInterval(loadDoc('demo',1), 500);
 </script>
         
 	
