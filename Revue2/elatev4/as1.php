@@ -102,60 +102,8 @@
                 </svg>
             </div>
             
-            <!--Multimetre-->
-            
-            <div class="sys">
-                <svg width="500" height="500">
-                    
-                    <!--base-->
-                    <g>
-                        <rect rx="20" ry="20" width="250" height="400" stroke="black" stroke-width="2"  fill="#494949" />
-                    </g>
-                    
-                    <!--Ecran-->
-                    <g >
-                        <rect id="screen" x="25" y="25" rx="20" ry="20"width="200" height="100" stroke="white" stroke-width="3"  fill="red" />
-                        <text id="uni" x="150" y="100" fill="black" font-size="2em"></text>
-                        <text id="val" x="50" y="100" fill="black" font-size="2em"></text>
-                    </g>
-                    
-                    <!--bouton rotative-->
-                    <g > 
-                        <circle cx="125" cy="250" r="75" stroke="black" stroke-width="3" fill="none" />
-                        <circle cx="125" cy="250" r="50" stroke="white" stroke-width="1" fill="black" />
-                        <polygon  id="BR" points="120,325 130,325 130,200 125,175 125,220 125,175 120,200" stroke="white" stroke-width="1"  fill="black" transform-origin="125 250"  />
-                    </g>
-                    
-                    <!--valeur-->
-                    <g id="mA">
-                        <rect x="20" y="214" rx="2" ry="2" width="27" height="20" stroke="black" stroke-width="1"  fill="white" />
-                        <text x="20" y="230" fill="black" font-size="1em">mA</text>
-                    </g>
-                    <g id="A">
-                        <rect x="55" y="164" rx="2" ry="2" width="25" height="20" stroke="black" stroke-width="1"  fill="white" />
-                        <text x="62" y="180" fill="black" font-size="1em">A</text>
-                    </g>
-                    <g id="OFF">
-                        <rect x="110" y="149" rx="2" ry="2" width="33" height="20" stroke="black" stroke-width="1"  fill="white" />
-                        <text x="110" y="165" fill="black" font-size="1em">OFF</text>
-                    </g>
-                    <g id="V">
-                        <rect x="175" y="164" rx="2" ry="2" width="25" height="20" stroke="black" stroke-width="1"  fill="white" />
-                        <text x="182" y="180" fill="black" font-size="1em">V</text>
-                    </g>
-                    <g id="mV">
-                    <rect x="205" y="214" rx="2" ry="2" width="27" height="20" stroke="black" stroke-width="1"  fill="white" />
-                    <text x="205" y="230" fill="black" font-size="1em">mV</text>
-                    </g>
-                    
-                    <!--port-->
-                    <g>
-                    <circle  cx="75" cy="370" r="10" stroke="darkred" stroke-width="5" fill="red" />
-                    <circle cx="175" cy="370" r="10" stroke="black" stroke-width="5" fill="#3d3d3d" />
-                    </g>
-                    
 <!--/////////////////////////////////////////////multimetre/////////////////////////////////////////////////////////////-->                    
-                </svg>
+               
                 <svg width="500" height="500">
                     
                     <!--base-->
@@ -266,69 +214,23 @@
 	<script src="js/main.js"></script>
 	
 	
-	<script>
-	    function Valeur(ID) {
-             if(ID =="mA")
-                {
-                 document.getElementById("val").innerHTML = "<?php afficheValeur($courant,$idcom)?>"; 
-                 document.getElementById("uni").innerHTML = ID; 
-                 document.getElementById("screen").style.fill = 'aqua';
-                 document.getElementById("BR").style.transform='rotate(-70deg)';
-                }
-             if(ID =="A")
-             {
-                 document.getElementById("val").innerHTML = "<?php afficheValeur($courant,$idcom)?>"/1000; 
-                 document.getElementById("uni").innerHTML = ID;
-                 document.getElementById("screen").style.fill = 'aqua';
-                 document.getElementById("BR").style.transform='rotate(-40deg)';
-             }
-             if(ID =="OFF")
-             {
-                 document.getElementById("val").innerHTML = ""; 
-                 document.getElementById("uni").innerHTML ="";
-                 document.getElementById("screen").style.fill = 'red';
-                 document.getElementById("BR").style.transform='rotate(0deg)';
-             }
-             
-             if(ID =="mV")
-             {
-                 document.getElementById("val").innerHTML = "<?php afficheValeur($tension,$idcom)?>"; 
-                 document.getElementById("uni").innerHTML = ID;
-                 document.getElementById("screen").style.fill = 'aqua';
-                 document.getElementById("BR").style.transform='rotate(70deg)';
-             }
-             
-            if(ID =="V")
-            {
-                document.getElementById("val").innerHTML = "<?php afficheValeur($tension,$idcom)?>"/1000; 
-                document.getElementById("uni").innerHTML = ID;
-                document.getElementById("screen").style.fill = 'aqua';
-                document.getElementById("BR").style.transform='rotate(40deg)';
-            }
-        };
-        
- 		 document.getElementById("mA").onclick = function() {Valeur("mA")};
- 		 
- 		 document.getElementById("A").onclick = function() {Valeur("A")};
- 		 
- 		 document.getElementById("OFF").onclick = function() {Valeur("OFF")};
- 		 
- 		 document.getElementById("V").onclick = function() {Valeur("V")};
- 		 
- 		 document.getElementById("mV").onclick = function() {Valeur("mV")};
- 		 
- 		 
- 		 
- 		 
- 		 
- 		/* let xhr = new XMLHttpRequest();
- 		xhr.open('GET', '/article/xmlhttprequest/example/load')*/
- 		 
- 		 xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");  //Under this add the following lines:
-                var id = document.getElementById('courant').value; 
-                xmlhttp.send("id="+id);
 
-    </script>
+ 		 
+ 		 
+ 		 
+
+         
+        
+    <script src="js/data.js"> 
+    
+    getData(); 
+   
+
+
+
+
+ </script>
+        
 	
 		
 
