@@ -2,21 +2,36 @@
 
 							//    // On se connecte à MySQL
 						   include_once("database.php");
-							   // Connexion à la base de données
-								  $idcom = connect_DB();
-							
-							   $inclinaison="SELECT Inclinaison_Panneau FROM MesurePS WHERE id_ps='1' ORDER BY ID DESC ";//selcetionner seulement la consommation
-							   $orientation="SELECT Orientation_Panneau FROM MesurePS WHERE id_ps='1' ORDER BY ID DESC";
-							   $tension="SELECT V_Panneau FROM MesurePS WHERE id_ps='1' ORDER BY ID DESC";
-							   $courant="SELECT I_Panneau FROM MesurePS WHERE id_ps='1' ORDER BY ID DESC";
-							   $temps_marche="SELECT Horodatage FROM MesurePS WHERE id_ps='1' ORDER BY ID DESC";
-								  //////////////////////////////////////////////////////
-								afficheValeur($inclinaison,$idcom);
-							  afficheValeur($orientation,$idcom);
-								afficheValeur($courant,$idcom);
-							  afficheValeur($temps_marche,$idcom); 
+							// Connexion à la base de données
+							$idcom = connect_DB();
+
+
+						
+							$inclinaison = rand(0,110);
+							$orientation = rand(0,360);
+							$tension = rand(10,100);
+							$courant = rand(10,50);
+							$sys = rand(1,2);
+							$h = rand(0,24);
+							$m = rand(0,60);
+							$s = rand(0,60);
+							$p = $tension * $courant;
+								//////////////////////////////////////////////////////
+							echo $inclinaison;
+							echo "\n";
+							echo $orientation;
+							echo "\n";
+						 
 						   //p=U*I il me faut peut être la tension 
 						   //ajouter un parametre d'unité a la fonction ??
-						   header("Refresh:0");
+						   	$strRequete = "INSERT INTO mesureps (Inclinaison_Panneau,Orientation_Panneau,V_Panneau,V_Batterie,I_Panneau,I_Batterie,id_ps) VALUES ('".$inclinaison."','".$orientation."','".$tension."','".$tension."','".$courant."','".$courant."','".$sys."')";
+
+							$strRequete2= "INSERT INTO mesurerl ( `id_rl`, `consommation`, `tmp_marche`) VALUES ( '".$sys."', '".$p."', '".$h.":".$m.":".$s."')";
+							echo $strRequete;
+							echo "\n";
+							echo $strRequete2;
+							$result = $idcom->exec($strRequete);
+							$result2 = $idcom->exec($strRequete2);
+						   header("Refresh:2");
 						   
 ?> 
