@@ -17,6 +17,6 @@
 							  afficheValeur($temps_marche,$idcom); 
 						   //p=U*I il me faut peut être la tension 
 						   //ajouter un parametre d'unité a la fonction ??
-						   header("Refresh:0");
+						   header("Refresh:3");
 						   
 ?> 

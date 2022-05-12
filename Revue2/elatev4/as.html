@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-    <html class="no-js"> 
+    <html > 
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,7 +31,7 @@
 	<style>
 	 .sys {
         display: inline-block;
-        margin: center;
+        margin: auto;
     }
 	</style>
 
@@ -62,9 +62,9 @@
 			<div class=" text-center">
 				<form>
 					<h2>
-						<select class="systeme" id="systeme" name="systeme" s>
-							<option value="1" id="p1">Panneau Solaire 1</option>
-							<option value="2" id="p2">Panneau Solaire 2</option>
+						<select class="systeme" id="systeme" name="systeme" >
+							<option value="as1" id="p1">Panneau Solaire 1</option>
+							<option value="as2" id="p2">Panneau Solaire 2</option>
 						</select>
 					</h2>	
 				</form>
@@ -76,8 +76,8 @@
     	        <h3>Inclinaison :<span id="Inclinaison"></span>°</h3>
         		<svg height="170" width="280">
                     <line id="line" x1="50" y1="100" x2="200" y2="100" transform-origin="150 100" transform="rotate(0)" style="stroke:rgb(255,0,0); stroke-width:5" />
-                    <line x1="125" y1="150" x2="150" y2="100"style="stroke:rgb(0,0,0); stroke-width:3" />
-                    <line x1="175" y1="150" x2="150" y2="100"style="stroke:rgb(0,0,0); stroke-width:3" />
+                    <line x1="125" y1="150" x2="150" y2="100" style="stroke:rgb(0,0,0); stroke-width:3" />
+                    <line x1="175" y1="150" x2="150" y2="100" style="stroke:rgb(0,0,0); stroke-width:3" />
                     <circle cx="150" cy="100" r="3" stroke="black" stroke-width="3" fill="red" />
                     <rect x="10" y="0" width="250" height="150" style="fill:none;stroke-width:3;stroke:rgb(0,0,0)" />
                 </svg>
@@ -90,87 +90,24 @@
                     <text x="60" y="13" fill="red">N</text>
                     <circle cx="65" cy="80" r="60" stroke="black" stroke-width="5" fill="none" />
 					<g id="BR" transform-origin="65 80">
-                    	<polygon points="65,40 40,80 90,80 " style="fill:darkred;stroke:black;stroke-width:1"transform="rotate(0)" />
+                    	<polygon points="65,40 40,80 90,80 " style="fill:darkred;stroke:black;stroke-width:1" transform="rotate(0)" />
                     	<polygon points="65,120 40,80 90,80 " style="fill:cyan;stroke:black;stroke-width:1"  transform="rotate(0)"/>
 					</g>
                 </svg>
             </div>
             
-<!--/////////////////////////////////////////////multimetre/////////////////////////////////////////////////////////////-->                    
-               
-                <svg width="500" height="500">
-                    
-                    <!--base-->
-                    <g>
-                        <rect rx="20" ry="20" width="250" height="400" stroke="black" stroke-width="2"  fill="#494949" />
-                    </g>
-                    
-                    <!--Ecran-->
-                    <g >
-                        <rect id="screen" x="25" y="25" rx="20" ry="20"width="200" height="100" stroke="white" stroke-width="3"  fill="red" />
-                        <text id="uni" x="150" y="100" fill="black" font-size="2em"></text>
-                        <text id="val" x="50" y="100" fill="black" font-size="2em"></text>
-                    </g>
-                    
-                    <!--bouton rotative-->
-                    <g > 
-                        <circle cx="125" cy="250" r="75" stroke="black" stroke-width="3" fill="none" />
-                        <circle cx="125" cy="250" r="50" stroke="white" stroke-width="1" fill="black" />
-                        <polygon   points="120,325 130,325 130,200 125,175 125,220 125,175 120,200" stroke="white" stroke-width="1"  fill="black" transform-origin="125 250"  />
-                    </g>
-                    
-                    <!--valeur-->
-                    <g id="mA">
-                        <rect x="20" y="214" rx="2" ry="2" width="27" height="20" stroke="black" stroke-width="1"  fill="white" />
-                        <text x="20" y="230" fill="black" font-size="1em">mA</text>
-                    </g>
-                    <g id="A">
-                        <rect x="55" y="164" rx="2" ry="2" width="25" height="20" stroke="black" stroke-width="1"  fill="white" />
-                        <text x="62" y="180" fill="black" font-size="1em">A</text>
-                    </g>
-                    <g id="OFF">
-                        <rect x="110" y="149" rx="2" ry="2" width="33" height="20" stroke="black" stroke-width="1"  fill="white" />
-                        <text x="110" y="165" fill="black" font-size="1em">OFF</text>
-                    </g>
-                    <g id="V">
-                        <rect x="175" y="164" rx="2" ry="2" width="25" height="20" stroke="black" stroke-width="1"  fill="white" />
-                        <text x="182" y="180" fill="black" font-size="1em">V</text>
-                    </g>
-                    <g id="mV">
-                    <rect x="205" y="214" rx="2" ry="2" width="27" height="20" stroke="black" stroke-width="1"  fill="white" />
-                    <text x="205" y="230" fill="black" font-size="1em">mV</text>
-                    </g>
-                    
-                    <!--port-->
-                    <g>
-                    <circle  cx="75" cy="370" r="10" stroke="darkred" stroke-width="5" fill="red" />
-                    <circle cx="175" cy="370" r="10" stroke="black" stroke-width="5" fill="#3d3d3d" />
-                    </g>
-                    
-                    
-                </svg>
-<!--//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
             </div>
         </div>
        </div>
 				</div>
 				<a   href="index.html" >
-    						<img src="images/fleche.png"   width="50" height="50">
+    						<img src="images/fleche.png"   width="50px" height="50">
     					</a>
 			</div>
 		</div>				
-	</div>
 </section>
 
-	
-
-
-	
-	
-	
-	
-	
-	
 	<footer id="footer" role="contentinfo">
 		<a href="#" class="gotop js-gotop"><i class="icon-arrow-up2"></i></a>
 		<div class="container">
@@ -217,7 +154,7 @@
 <script>
 
 
-	//charger les données
+//////////////////////////////////////////////charger les données
 	function loadData(loc,nb,systeme) {
 
 	const xhttp = new XMLHttpRequest();
@@ -228,12 +165,11 @@
 		var test = this.responseText;
 		//var tab = JSON.parse(test);
 		var tab = test.split(' ');
-		console.log(tab);
 		document.getElementById(loc).innerHTML = tab[nb];
 
 	}
 
-	xhttp.open("GET", "./as"+systeme+".php");
+	xhttp.open("GET", "./"+systeme+".php");
 	xhttp.send();
 	}
 
@@ -244,7 +180,7 @@
    		setTimeout(function() {
 			//choix du systeme
 			var x = document.getElementById("systeme").value;
-			console.log(x);
+			
 			loadData('Inclinaison',1,x);
 			loadData('Orientation',2,x);
 
@@ -253,11 +189,10 @@
 			var orien= document.getElementById("Orientation").textContent;
 			document.getElementById("line").style.transform= 'rotate('+incli+'deg)';
 			document.getElementById("BR").style.transform='rotate('+orien+'deg)';
-			console.log(incli);
 		
 			
 			loop();
- 		}, 500);
+ 		}, 1000);
 	})();
 </script>
         

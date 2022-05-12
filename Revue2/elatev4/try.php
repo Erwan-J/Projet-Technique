@@ -15,7 +15,7 @@
 							$h = rand(0,24);
 							$m = rand(0,60);
 							$s = rand(0,60);
-							$p = $tension * $courant;
+							$p = ($tension * $courant)/100;
 								//////////////////////////////////////////////////////
 							echo $inclinaison;
 							echo "\n";
@@ -32,6 +32,6 @@
 							echo $strRequete2;
 							$result = $idcom->exec($strRequete);
 							$result2 = $idcom->exec($strRequete2);
-						   header("Refresh:2");
+						   header("Refresh:4");
 						   
 ?> 
