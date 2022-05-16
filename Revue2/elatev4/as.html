@@ -100,9 +100,9 @@
             </div>
         </div>
        </div>
-				</div>
+				</div class="to-animate">
 				<a   href="index.html" >
-    						<img src="images/fleche.png"   width="50px" height="50">
+    						<img src="images/fleche.png"    height="55">
     					</a>
 			</div>
 		</div>				
@@ -155,7 +155,7 @@
 
 
 //////////////////////////////////////////////charger les données
-	function loadData(loc,nb,systeme) {
+	function loadData(nb,AS,localisation) {
 
 	const xhttp = new XMLHttpRequest();
 		
@@ -165,11 +165,11 @@
 		var test = this.responseText;
 		//var tab = JSON.parse(test);
 		var tab = test.split(' ');
-		document.getElementById(loc).innerHTML = tab[nb];
+		document.getElementById(localisation).innerHTML = tab[nb];
 
 	}
 
-	xhttp.open("GET", "./"+systeme+".php");
+	xhttp.open("GET", "./"+AS+".php");
 	xhttp.send();
 	}
 
@@ -181,8 +181,8 @@
 			//choix du systeme
 			var x = document.getElementById("systeme").value;
 			
-			loadData('Inclinaison',1,x);
-			loadData('Orientation',2,x);
+			loadData(1,x,'Inclinaison');
+			loadData(2,x,'Orientation');
 
 			//mouvement
 			var incli = document.getElementById("Inclinaison").textContent;

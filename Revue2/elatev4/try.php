@@ -32,6 +32,7 @@
 							echo $strRequete2;
 							$result = $idcom->exec($strRequete);
 							$result2 = $idcom->exec($strRequete2);
-						   header("Refresh:4");
+						   header("Refresh:2");
 						   
 ?> 
+
