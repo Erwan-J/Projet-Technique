@@ -14,7 +14,7 @@
                 document.val = "js_var = " + test
 			}
 //"http://172.19.128.35/lireBoussolep"
-		xhttp.open("GET","./as1.php" );
+		xhttp.open("GET","http://172.19.128.35/lireBoussole" );
 		xhttp.send();
 		}
 
