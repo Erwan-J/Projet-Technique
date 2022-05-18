@@ -60,7 +60,11 @@ function connect_DB() {
  * @param : $classCss nom de la classe CSS à utiliser pour la mise en forme du tableau
  */
 function afficheTable($idcom, $nomTable, $classCss,$champTabble,$numSys) {
-	$requete="SELECT * FROM " . $nomTable." WHERE ".$champTabble."=".$numSys;
+	$requete="SELECT *  FROM " . $nomTable." WHERE ".$champTabble."=".$numSys."";
+	afficheRequete($idcom, $requete, $classCss);
+}
+function afficheTablepanneau($idcom, $nomTable, $classCss,$champTabble,$numSys,$ID,$lim) {
+	$requete="SELECT `Horodatage`,`Inclinaison_Panneau`,`Orientation_Panneau`  FROM " . $nomTable." WHERE ".$champTabble."=".$numSys." ORDER BY ".$ID. " DESC LIMIT " .$lim."";
 	afficheRequete($idcom, $requete, $classCss);
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -76,7 +80,6 @@ function afficheRequete($idcom, $requete, $classCss) {
 	$result=$idcom->query($requete);
 	if($result) {
 		$nbLignes=$result->rowCount();
-		echo "Il y a $nbLignes enregistrements.";
 
 		echo "<table class=\"" . $classCss . "\">";
 		

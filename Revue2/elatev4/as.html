@@ -98,7 +98,7 @@
             
 			
             </div>
-			<input class="BpHisto" type="button" value="BpHisto">
+			<input class="BpHisto" type="button" value="BpHisto" onclick ='loadHisto()'>
 			<div id="historique"></div>
         </div>
        </div>
@@ -197,7 +197,19 @@
  		}, 1000);
 	})();
 
-
+	var x = document.getElementById("historique").innerHTML;
+				
+function loadHisto()
+			{
+				
+				if(x ==""){
+					
+					x = $('#historique').load('histo1.php').fadeIn("slow");
+				}else{
+					document.getElementById("historique").innerHTML = "";
+					x = "";
+				}
+			}
 
 </script>
         
