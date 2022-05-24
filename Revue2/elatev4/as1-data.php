@@ -1,15 +1,13 @@
 <?php
 
 							//    // On se connecte à MySQL
-						   include_once("database.php");
+						   include_once("database2.php");
 							   // Connexion à la base de données
 								  $idcom = connect_DB();
 							
 							   $inclinaison="SELECT Inclinaison_Panneau FROM MesurePS WHERE id_ps='1' ORDER BY ID DESC ";//selcetionner seulement la consommation
 							   $orientation="SELECT Orientation_Panneau FROM MesurePS WHERE id_ps='1' ORDER BY ID DESC";
-							   $tension="SELECT V_Panneau FROM MesurePS WHERE id_ps='1' ORDER BY ID DESC";
 							   $courant="SELECT I_Panneau FROM MesurePS WHERE id_ps='1' ORDER BY ID DESC";
-							   $temps_marche="SELECT Horodatage FROM MesurePS WHERE id_ps='1' ORDER BY ID DESC";
 								  //////////////////////////////////////////////////////
 								afficheValeur($inclinaison,$idcom);
 							  afficheValeur($orientation,$idcom);

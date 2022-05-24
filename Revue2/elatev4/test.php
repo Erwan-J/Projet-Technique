@@ -1,38 +1,48 @@
 <?php
 //    // On se connecte à MySQL
-include_once("database.php");
+include_once("database2.php");
 // Connexion à la base de données
 $idcom = connect_DB();
 
 
-
+$systeme = htmlspecialchars(strip_tags(trim($_POST['hello'])));
 $inclinaison = htmlspecialchars(strip_tags(trim($_POST['inclinaison'])));
 $orientation = htmlspecialchars(strip_tags(trim($_POST['Orientation'])));
-$systeme = htmlspecialchars(strip_tags(trim($_POST['systeme'])));
 $courant = htmlspecialchars(strip_tags(trim($_POST['consommation'])));
 $id=htmlspecialchars(strip_tags(trim($_POST['id'])));
 	//////////////////////////////////////////////////////
 
 
-//p=U*I il me faut peut être la tension 
-//ajouter un parametre d'unité a la fonction ??
-$strRequete = "INSERT INTO mesureps (Inclinaison_Panneau,Orientation_Panneau,V_Panneau,V_Batterie,I_Panneau,I_Batterie,id_ps) VALUES ('".$inclinaison."','".$orientation."','".$tension."','".$tension."','".$courant."','".$courant."','".$sys."')";
+if ($systeme == "mesurePS")
+	{
+		$strRequete = "INSERT INTO mesurePS (Inclinaison_Panneau,Orientation_Panneau,I_Panneau,id_ps) VALUES ('".$inclinaison."','".$orientation."','".$courant."','".$id."')";
+		$result = $idcom->exec($strRequete);
+	}
+else if ($systeme == "mesureRL")
+	{
+		$strRequete= "INSERT INTO mesureRL ( `id_rl`, `consommation`) VALUES ( '".$id."','".$courant."')";
+		$result = $idcom->exec($strRequete);
+	}
 
-$strRequete2= "INSERT INTO mesurerl ( `id_rl`, `consommation`, `tmp_marche`) VALUES ( '".$sys."', '".$p."', '".$h.":".$m.":".$s."')";
-$result = $idcom->exec($strRequete);
-$result2 = $idcom->exec($strRequete2);
+
 
 					   
 ?> 
+<!DOCTYPE html>
 <html>
-<form method="post" action="test.php">
-<label for="systeme"  >systeme:</label>	<select name="systeme" id="systeme">
-										<option>mesureps</option> <option>mesurerl</option>
-										</select></p>
-<label for="inclinaison" >Inclinaison:</label><input type="number" name="inclinaison" id="inclinaison" placeholder="inclinaison" min="0" max="360"></p>
-<label for="Orientation" >Orientation:</label><input type="number" name="Orientation" id="Orientation" placeholder="Orientation" min="0" max="100"></p>
-<label for="consommation" >consommation:</label><input type="number" name="consommation" id="consommation" placeholder="consommation" min="0" max="999"></p>
-<label for="id" >id:</label><input type="number" name="id" id="id" placeholder="id" min="1" max="2"></p>
-<input type="submit" name="Valider" value="Valider">
-</form>
+	<form method="post" action="test.php">
+
+		<label for="hello">systeme:</label><input type="text" name="hello" id="hello" placeholder="mesurePS/RL" ><p></p>
+
+		<label for="inclinaison" >Inclinaison:</label><input type="number" name="inclinaison" id="inclinaison" placeholder="90°" min="0" max="100"><p></p>
+
+		<label for="Orientation" >Orientation:</label><input type="number" name="Orientation" id="Orientation" placeholder="360°" min="0" max="360"><p></p>
+
+		<label for="consommation" >consommation:</label><input type="number" name="consommation" id="consommation" placeholder="50" min="0" max="999"><p></p>
+
+		<label for="id" >id:</label><input type="number" name="id" id="id" placeholder="1/2" min="1" max="2"><p></p>
+
+		<input type="submit" name="Valider" value="Valider"><p></p>
+
+	</form>
 </html>

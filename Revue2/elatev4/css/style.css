@@ -1415,7 +1415,8 @@ label, input, textarea, select, button {
 }
 /*# historique */
 .tabOrange tr {
-	height: 32px;
+	height: 40px;
+  margin: 15%;
 }
 .tabOrange tr:nth-child(odd) {	/* Alternance lignes paires et impaires (odd, even) */
 	background-color:#FDE4D0;
@@ -1452,4 +1453,8 @@ a:hover {
 
 .BpHisto {
 background-color: #3f95ea;
+}
+.sys {
+  display: inline-block;
+  margin: auto;
 }
