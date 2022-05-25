@@ -494,7 +494,6 @@ h1, h2, h3, h4, h5, h6 {
   flex-grow: 1;
   background-size: cover;
   position: relative;
-  backgroun-repeat: no-repeat;
 }
 @media screen and (max-width: 768px) {
   #fh5co-intro .fh5co-block {
@@ -1404,8 +1403,11 @@ h1, h2, h3, h4, h5, h6 {
 /*# sourceMappingURL=style.css.map */
 
 .center-div {
-  margin: 0 auto;
-  width: auto; 
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: auto;
+  margin-left: auto;
+  justify-content: center;
 }
 
 label, input, textarea, select, button {
