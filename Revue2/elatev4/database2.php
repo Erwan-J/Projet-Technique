@@ -74,7 +74,7 @@ function afficheTablePanneau($idcom, $nomTable, $classCss,$champTabble,$numSys,$
  * @param : $classCss nom de la classe CSS à utiliser pour la mise en forme du tableau
  */
 function afficheTableRegie($idcom, $nomTable, $classCss,$champTabble,$numSys,$ID,$lim) {
-	$requete="SELECT `Horodatage`,`consommation`,`tmp_marche`  FROM " . $nomTable." WHERE ".$champTabble."=".$numSys." ORDER BY ".$ID. " DESC LIMIT " .$lim."";
+	$requete="SELECT `Horodatage`,`consommation`  FROM " . $nomTable." WHERE ".$champTabble."=".$numSys." ORDER BY ".$ID. " DESC LIMIT " .$lim."";
 	afficheRequete($idcom, $requete, $classCss);
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -97,7 +97,7 @@ function afficheRequete($idcom, $requete, $classCss) {
 			// Affichage des noms des colonnes ou des alias			
 			afficheEnTeteColonnes(array_keys($ligne));
 
-			echo "<tbody>";
+			echo "<tbody >";
 			// Affichage de la première ligne
 			afficheLigne($ligne);
 		}

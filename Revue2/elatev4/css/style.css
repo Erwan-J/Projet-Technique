@@ -1416,8 +1416,8 @@ label, input, textarea, select, button {
 	margin: 5px;
 }
 /*# historique */
-.tabOrange tr {
-	height: 40px;
+.tabOrange  {
+	height: auto;
   margin: 15%;
 }
 .tabOrange tr:nth-child(odd) {	/* Alternance lignes paires et impaires (odd, even) */
